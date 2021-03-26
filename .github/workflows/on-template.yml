@@ -11,7 +11,9 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v2.2.1
       - name: Run Template Script
-        run: python ./on-template.py
+        run: |
+          pip install GitPython 
+          python ./on-template.py
       - name: push
         uses: github-actions-x/commit@v2.1
         with:

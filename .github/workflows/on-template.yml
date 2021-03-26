@@ -14,9 +14,8 @@ jobs:
         run: |
           pip install GitPython 
           python ./on-template.py
-      - name: push
-        uses: github-actions-x/commit@v2.1
+      - name: Commit & Push changes
+        uses: actions-js/push@master
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          commit-message: 'chore(): template used action'
-          rebase: 'true'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          message: "chore(template): apply template action"

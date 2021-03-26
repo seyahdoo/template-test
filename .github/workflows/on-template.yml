@@ -1,0 +1,20 @@
+name: On Template Used
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2.2.1
+      - name: Run Template Script
+        run: python ./on-template.py
+      - name: push
+        uses: github-actions-x/commit@v2.1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: 'chore(): template used action'
+          rebase: 'true'
